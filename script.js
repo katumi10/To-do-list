@@ -44,14 +44,14 @@ const addTask = () =>{
     };
 });
 
-const editBtn= document.querySelectorAll(".edit");
-editBtn.forEach((editBtn) => {
-    editBtn.onclick = (e) =>{
+const editBtns= document.querySelectorAll(".edit");
+editBtns.forEach((editBtn) => {
+    editBtn.onclick = (e) => {
         let targetElement = e.target;
         if (!(e.target.className == "edit")){
             targetElement = e.target.parentElement;
         }
-        newTaskInput.value = targetElement.previousElementSiblings?.innerText;
+        newTaskInput.value = targetElement.previousElementSibling ?.innerText;
         targetElement.parentNode.remove();
         taskCount -= 1;
         displayCount(taskCount);
@@ -74,7 +74,6 @@ tasksCheck.forEach((checkBox)=> {
 taskCount += 1;
 displayCount(taskCount);
 newTaskInput.value = " ";
-
 };
 
 addBtn.addEventListener("click", addTask);
